@@ -37,7 +37,7 @@ class FragmentViewPagerStateAdapter : FragmentStateAdapter {
     }
 
     override fun createFragment(position: Int): Fragment {
-        return titleFragmentMenus[position].fragment!!
+        return titleFragmentMenus[position].fragment
     }
 
     override fun getItemCount(): Int {

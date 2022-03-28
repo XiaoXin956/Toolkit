@@ -245,9 +245,9 @@ class LoadingLayout constructor(context: Context, attrs: AttributeSet? = null, d
                 throw RuntimeException("content view can not be null")
             }
             val parent = view.parent as ViewGroup
-            if (view == null) {
-                throw RuntimeException("parent view can not be null")
-            }
+//            if (parent == null) {
+//                throw RuntimeException("parent view can not be null")
+//            }
             val lp = view.layoutParams
             val index = parent.indexOfChild(view)
             parent.removeView(view)

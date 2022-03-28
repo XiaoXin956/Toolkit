@@ -69,7 +69,7 @@ class UserViewModel : BaseViewModel() {
             val upLoadFileRes = userRepository.downLoadFile(
                 "https://6b781829a90db6988044d27787e61582.rdt.tfogc.com:49156/imtt.dd.qq.com/sjy.10001/16891/apk/377C09332DA0F77C77D927D146FC85BE.apk?mkey=623d55958ac6d08eea81e0fc7a67202f&arrive_key=130860530074&fsname=cn.caocaokeji.user_5.4.0_51280.apk&csr=3554&cip=219.134.119.1&proto=https",
                 headers,
-                "",""
+                "",
                 ){
                 launch(Dispatchers.Main) {
                     Log.e("进度",it.toString())

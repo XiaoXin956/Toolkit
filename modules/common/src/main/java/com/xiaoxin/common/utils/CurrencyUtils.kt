@@ -31,7 +31,7 @@ class CurrencyUtils {
         if (amount.contains(".")) {
             return amount
         }
-        return DecimalFormat("0.00").format(amount as Double);
+        return DecimalFormat("0.00").format(amount.toDouble())
 
     }
 
@@ -114,7 +114,7 @@ class CurrencyUtils {
                 .setScale(0, 4).abs().toLong()
             // 得到小数点后两位值
             val scale = number % 100
-            var numUnit = 0
+            var numUnit: Int
             var numIndex = 0
             var getZero = false
             // 判断最后两位数，一共有四中情况：00 = 0, 01 = 1, 10, 11

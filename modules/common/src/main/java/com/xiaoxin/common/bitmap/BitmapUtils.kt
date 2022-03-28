@@ -48,7 +48,7 @@ class BitmapUtils {
      * @param newImgPath String
      * @return File
      */
-    fun loadViewBitmap(activity: Activity, v: View, newImgPath:String): File {
+    fun loadViewBitmap(v: View, newImgPath: String): File {
         val w = v.width;
         val h = v.height
         val bitmap = Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888);
