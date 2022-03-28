@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Toolkit.iml" filepath="$PROJECT_DIR$/.idea/modules/Toolkit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Toolkit.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Toolkit.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/Toolkit.modules.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/Toolkit.modules.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/common/Toolkit.modules.common.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/common/Toolkit.modules.common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/network/Toolkit.modules.network.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/network/Toolkit.modules.network.iml" />
+    </modules>
+  </component>
+</project>
