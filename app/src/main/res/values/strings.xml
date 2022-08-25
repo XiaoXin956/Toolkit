@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Toolkit</string>
+    <string-array name="letters">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+    </string-array>
+    <string name="title_activity_hitokoto">HitokotoActivity</string>
+    <string name="title_activity_hitokoto2">HitokotoActivity2</string>
+</resources>

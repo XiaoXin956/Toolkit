@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="userViewModel"
+            type="com.xiaoxin.toolkit.viewmodel.UserViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:context=".MainActivity">
+
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_compose"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/_loading_layout_button"
+                        android:text="compose"
+                        android:textSize="16dp" />
+
+                    <EditText
+                        android:id="@+id/edit_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{userViewModel.resText}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{userViewModel.resTextUpdate}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:id="@+id/edit_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:text="QBT" />
+
+                    <EditText
+                        android:id="@+id/edit_pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:text="QBT001" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="按钮登录1" />
+
+                        <Button
+                            android:id="@+id/btn_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="按钮登录2" />
+
+                        <Button
+                            android:id="@+id/btn_pay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="支付测试" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_bg_b22222"
+                        android:text="@{userViewModel.resLogin.toString()}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/edit_file_path"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:text="/storage/emulated/0/Pictures/1648606363189462.jpeg" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_up_load"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="文件上传" />
+
+                        <ProgressBar
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:max="100"
+                            android:progress="@{userViewModel.upLoadFileProgress}"
+                            android:scrollbars="horizontal" />
+
+                        <Button
+                            android:id="@+id/btn_down_load"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="文件下载" />
+
+                        <ProgressBar
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:max="100"
+                            android:progress="@{userViewModel.downLoadFileProgress}"
+                            android:scrollbars="horizontal" />
+
+                    </LinearLayout>
+
+                    <com.xiaoxin.toolkit.StepLoadView
+                        android:id="@+id/load"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+
+                    <Button
+                        android:id="@+id/btn_page_calender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/_loading_layout_button"
+                        android:text="跳转到滑动日历"
+                        android:textSize="16dp" />
+
+
+                    <Button
+                        android:id="@+id/btn_screen_recording"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/_loading_layout_button"
+                        android:text="开始录屏"
+                        android:textSize="16dp" />
+
+                    <Button
+                        android:id="@+id/btn_screen_recording_stop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/_loading_layout_button"
+                        android:text="停止"
+                        android:textSize="16dp" />
+
+                    <com.xiaoxin.basic.date.CalendarView
+                        android:id="@+id/cv_cal"
+                        android:layout_width="match_parent"
+                        android:layout_height="500dp"
+                        app:banSelectBackground="@drawable/item_calender_un_select_background"
+                        app:banSelectTextColor="@color/purple_700"
+                        app:calendarTextSize="8sp"
+                        app:dateStart="2022-01-01"
+                        app:isShowWeek="true"
+                        app:isSingle="false"
+                        app:itemLineHeight="1dp"
+                        app:selectBackground="@drawable/item_calender_select_background"
+                        app:selectEndBackground="@drawable/item_calender_select_end_background"
+                        app:selectStartBackground="@drawable/item_calender_select_start_background"
+                        app:selectTextColor="@color/white"
+                        app:unSelectBackground="@drawable/item_calender_un_select_background"
+                        app:unSelectTextColor="@color/black"
+                        app:yearMonthTextColor="@color/purple_500" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <com.xiaoxin.common.widget.LetterSideBar
+            android:id="@+id/ls_zim"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            app:selectColor="@color/calender_select_text_color"
+            app:textSize="6sp"
+            app:unSelectColor="@color/calender_ban_select_text_color" />
+
+    </LinearLayout>
+
+</layout>
