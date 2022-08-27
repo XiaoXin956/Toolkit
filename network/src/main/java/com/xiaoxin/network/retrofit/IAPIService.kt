@@ -4,10 +4,7 @@ import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.http.*
 
-/**
- * @author: Admin
- * @date: 2021-12-02
- */
+// 网络
 @JvmSuppressWildcards
 interface IAPIService {
 
