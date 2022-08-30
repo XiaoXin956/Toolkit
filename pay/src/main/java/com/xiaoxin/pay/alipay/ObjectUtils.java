@@ -26,7 +26,6 @@ public class ObjectUtils {
         return map2;
     }
 
-
     /**
      * MD5加密
      * @param data
