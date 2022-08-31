@@ -6,7 +6,10 @@ import androidx.lifecycle.viewModelScope
 import com.xiaoxin.basic.date.CalendarUtils
 import com.xiaoxin.basic.date.DateBean
 import com.xiaoxin.map.GoogleBean
+import com.xiaoxin.map.MapFactory
 import com.xiaoxin.map.MapHttpResponse
+import com.xiaoxin.map.base.Resource
+import com.xiaoxin.map.constant.ConstantMap
 import com.xiaoxin.map.repository.GoogleMapRepository
 import com.xiaoxin.toolkit.App
 import com.xiaoxin.toolkit.HttpResponse
@@ -154,14 +157,22 @@ class UserViewModel : BaseViewModel() {
     private val googleR by lazy { GoogleMapRepository() }
      val addressCode by lazy { MutableLiveData<MapHttpResponse<GoogleBean.GeoCodes>>() }
     fun reqAddressCode(maps: HashMap<String, Any>) {
-
         viewModelScope.launch {
+            var maps =HashMap<String,Any>()
+            maps["address"]="深圳龙华"
+                val addressCode = MapFactory.getMap(ConstantMap.GaoDeCode)
+                    .addressCode(
+                        key = "ca2373826f20ee2cb449c894949c883d",
+                        maps = maps
+                    )
+                when(addressCode){
+                    is Resource.Success->{
 
-            val googleCode = googleR.googleCode("AIzaSyA50Y6Y95UAiuZZ1QBY9qSFuv1JbpGP2FU", maps)
-            addressCode.value = googleCode
+                    }
+                    is Resource.Error->{
+
+                    }
+            }
         }
-
     }
-
-
 }

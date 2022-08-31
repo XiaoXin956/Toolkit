@@ -61,5 +61,11 @@ class GetMethod() : BaseParam() {
 
     }
 
+    override suspend fun request(): Any? {
 
+
+
+
+        return super.request()
+    }
 }

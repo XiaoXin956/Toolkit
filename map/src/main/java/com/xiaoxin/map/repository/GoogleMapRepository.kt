@@ -3,8 +3,10 @@ package com.xiaoxin.map.repository
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.xiaoxin.basic.utils.copyProperties
+import com.xiaoxin.map.GaoDeBean
 import com.xiaoxin.map.GoogleBean
 import com.xiaoxin.map.MapHttpResponse
+import com.xiaoxin.map.base.Resource
 import com.xiaoxin.map.constant.ConstantMap
 import com.xiaoxin.network.retrofit.bean.BaseException
 
@@ -18,9 +20,9 @@ class GoogleMapRepository : BaseMapRepository() {
     suspend fun googleCode(
         key: String,
         maps: HashMap<String, Any>
-    ): MapHttpResponse<GoogleBean.GeoCodes> {
-        var result = MapHttpResponse<GoogleBean.GeoCodes>()
-        var geoCodes: GoogleBean.GeoCodes?
+    ): MapHttpResponse<GaoDeBean.GaoDeCodes> {
+        var result = MapHttpResponse<GaoDeBean.GaoDeCodes>()
+        var geoCodes: GaoDeBean.GaoDeCodes?
         if (maps["address"] != null) {
             maps["address"]
             maps.remove("location")
@@ -38,25 +40,25 @@ class GoogleMapRepository : BaseMapRepository() {
 
         retrofitManager
             .getMethod
-            .setUrl(ConstantMap.GoogleMap.geocoding)
+            .setUrl(ConstantMap.GaoDeMap.geocoding)
             .setQueryMap(maps)
             .requestT(
                 success = {
+                    var string = Gson().toJson(it)
                     geoCodes = Gson().fromJson(
-                        it.toString(),
-                        object : TypeToken<GoogleBean.GeoCodes>() {}.type
+                        string,
+                        object : TypeToken<GaoDeBean.GaoDeCodes>() {}.type
                     )
                     result.code = 0
                     result.value = geoCodes
                 },
                 error = {
-
-                    val baseHttpResponse = BaseException.exception<GoogleBean.GeoCodes>(it)
+                    val baseHttpResponse = BaseException.exception<GaoDeBean.GaoDeCodes>(it)
                     result =
                         copyProperties(
                             baseHttpResponse,
                             MapHttpResponse::class.java
-                        ) as MapHttpResponse<GoogleBean.GeoCodes>
+                        ) as MapHttpResponse<GaoDeBean.GaoDeCodes>
                     result.code = baseHttpResponse.code
                     result.msg = baseHttpResponse.msg
                     result.value = baseHttpResponse.value

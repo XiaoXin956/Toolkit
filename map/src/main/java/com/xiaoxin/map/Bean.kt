@@ -2,15 +2,59 @@ package com.xiaoxin.map
 
 import com.xiaoxin.network.retrofit.bean.BaseHttpResponse
 
-class MapHttpResponse<T> :BaseHttpResponse<T>(){
+class MapHttpResponse<T> : BaseHttpResponse<T>() {
 
 }
+
+
+
+
+object GaoDeBean {
+
+    data class GaoDeCodes(
+        var count: String,
+        var geocodes: ArrayList<Geocode>,
+        var info: String,
+        var infocode: String,
+        var status: String
+    )
+
+    data class Geocode(
+        var adcode: String,
+//        var building: Building,
+//        var city: String,
+//        var citycode: String,
+//        var country: String,
+//        var district: String,
+//        var formatted_address: String,
+//        var level: String,
+//        var location: String,
+//        var neighborhood: Neighborhood,
+//        var number: List<Any>,
+//        var province: String,
+//        var street: List<Any>,
+//        var township: List<Any>
+    )
+
+    data class Building(
+        var name: List<Any>,
+        var type: List<Any>
+    )
+
+    data class Neighborhood(
+        var name: List<Any>,
+        var type: List<Any>
+    )
+
+
+}
+
 
 object GoogleBean {
 
     data class GeoCodes(
 
-        var error_message:String,
+        var error_message: String,
         var results: List<Result>,
         /**
          * "OK"表示没有发生错误；地址已成功解析，并且至少返回了一个地理编码。
@@ -133,4 +177,7 @@ object GoogleBean {
     )
 
 }
+
+
+
 

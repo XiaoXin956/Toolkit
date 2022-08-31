@@ -1,6 +1,7 @@
 package com.xiaoxin.map
 
 import androidx.annotation.Nullable
+import com.xiaoxin.map.base.Resource
 
 /**
  * @author: Admin
@@ -10,11 +11,12 @@ interface IMap {
 
     // 当前位置
 
+
     // 路线数据
 
     // 地理/逆地理编码
-    suspend fun addressCode(@Nullable key: String, maps: HashMap<String, Any>):
-            MapHttpResponse<GoogleBean.GeoCodes>
+    suspend fun addressCode(@Nullable key: String, maps: HashMap<String, Any>):Resource<Any>
+            //MapHttpResponse<GoogleBean.GeoCodes>
 
     //距离
 //    fun distance(leftTopLatlng: String, rightBottomLatlng: String)

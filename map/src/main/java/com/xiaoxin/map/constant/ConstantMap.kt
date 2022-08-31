@@ -2,13 +2,18 @@ package com.xiaoxin.map.constant
 
 object ConstantMap {
 
-    object GoogleMap{
+    val GaoDeCode = "gaode"
+    val BaiDuCode = "baidu"
+    val GoogleCode = "google"
 
-        val geocoding = "https://maps.googleapis.com/maps/api/geocode/json"
-
-
+    object GaoDeMap{
+        val geocoding = "https://restapi.amap.com/v3/geocode/geo"
     }
 
+
+    object GoogleMap{
+        val geocoding = "https://maps.googleapis.com/maps/api/geocode/json"
+    }
 
 
 }

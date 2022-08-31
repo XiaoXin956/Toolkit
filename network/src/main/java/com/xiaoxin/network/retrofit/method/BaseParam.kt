@@ -19,4 +19,8 @@ abstract class BaseParam {
 
     }
 
+    open suspend fun request() :Any? {
+        return null
+    }
+
 }

@@ -1,28 +1,30 @@
 package com.xiaoxin.map
 
+import com.xiaoxin.map.constant.ConstantMap
+import com.xiaoxin.map.repository.GaoDeMap
+import com.xiaoxin.map.repository.GoogleMap
+
 /**
  * @author: Admin
  * @date: 2022-05-07
  */
 object MapFactory {
 
-    private const val gaoDe = "gaode"
-    private const val google = "google"
-    private const val baidu = "baidu"
-
     fun getMap(typeMap: String): IMap {
        return when (typeMap) {
-            gaoDe -> {
+           ConstantMap.GaoDeCode -> {
                 GaoDeMap()
             }
-            google -> {
+           ConstantMap.BaiDuCode -> {
                 GoogleMap()
             }
-            else->{
+           ConstantMap.GoogleCode->{
                 GaoDeMap()
             }
-        }
+           else -> {
+               GaoDeMap()
+           }
+       }
     }
-
 
 }
