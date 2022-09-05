@@ -14,20 +14,31 @@ import com.xiaoxin.basic.R
  */
 class BaseDialog : Dialog {
 
-    constructor(context: Context, view: View) : super(context) {
-        setContentView(view)
+    var gravity: Int? = Gravity.CENTER
+
+    constructor(context: Context, view: View, gravity: Int? = Gravity.CENTER) : super(context) {
+        this.gravity=gravity
+        setContentView(view = view)
     }
 
-    constructor(context: Context, themeResId: Int, view: View) : super(context, themeResId) {
-        setContentView(view)
+    constructor(context: Context, themeResId: Int, view: View, gravity: Int? = Gravity.CENTER) : super(context, themeResId) {
+        this.gravity=gravity
+        setContentView(view = view)
     }
 
-    constructor(context: Context, cancelable: Boolean, cancelListener: DialogInterface.OnCancelListener?, view: View) : super(
+    constructor(
+        context: Context,
+        cancelable: Boolean,
+        cancelListener: DialogInterface.OnCancelListener?,
+        view: View,
+        gravity: Int? = Gravity.CENTER
+    ) : super(
         context,
         cancelable,
         cancelListener
     ) {
-        setContentView(view)
+        this.gravity=gravity
+        setContentView(view = view)
     }
 
     override fun setContentView(view: View) {
@@ -40,7 +51,7 @@ class BaseDialog : Dialog {
         window.windowManager.defaultDisplay.getMetrics(displayMetrics)
         //获取屏幕宽
         wlp.width = displayMetrics.widthPixels
-        wlp.gravity = Gravity.CENTER
+        wlp.gravity = gravity!!
         window.attributes = wlp
         setCanceledOnTouchOutside(false)
     }
