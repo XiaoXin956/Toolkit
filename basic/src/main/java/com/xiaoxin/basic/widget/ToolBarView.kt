@@ -49,7 +49,7 @@ class ToolBarView : Toolbar {
         this.setBackgroundColor(backgroundColor)
     }
 
-    private var textTitleDefault: TextView? = null
+    var textTitleDefault: TextView? = null
     fun setDefaultTitle(title: String, textColor: Int? = Color.BLACK) {
         if (textTitleDefault==null) {
             textTitleDefault = TextView(context)
@@ -60,6 +60,7 @@ class ToolBarView : Toolbar {
             addCenter(it)
         }
     }
+
 
     var leftTitleDefault: ImageView? = null
     fun setDefaultLeftImage(imageColor: Int? = Color.BLACK, leftIcon: Int): Unit {

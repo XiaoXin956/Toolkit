@@ -4,13 +4,9 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Environment
 import android.util.Log
-import android.view.Gravity
-import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -18,9 +14,9 @@ import com.google.android.material.tabs.TabLayout
 import com.xiaoxin.basic.date.CalendarUtils
 import com.xiaoxin.basic.date.CalendarView
 import com.xiaoxin.basic.date.onItemSelectDate
-import com.xiaoxin.basic.dialog.BaseDialog
 import com.xiaoxin.basic.toast.ToastUtils
 import com.xiaoxin.basic.utils.log
+import com.xiaoxin.basic.widget.ToolBarView
 import com.xiaoxin.common.widget.LetterSideBar
 import com.xiaoxin.common.widget.addTextChangeListener
 import com.xiaoxin.common.widget.click
@@ -51,6 +47,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var cvCalender: CalendarView
     lateinit var context: Context
+
+    var tb:ToolBarView ?=null
 
     private val userViewModel by lazy {
         ViewModelProvider.NewInstanceFactory().create(UserViewModel::class.java)
@@ -118,6 +116,9 @@ class MainActivity : AppCompatActivity() {
 
 //            var intent = Intent(this, HitokotoActivity::class.java)
 //            startActivity(intent)
+
+
+
         }
 
         btn_up_load = findViewById(R.id.btn_up_load)
