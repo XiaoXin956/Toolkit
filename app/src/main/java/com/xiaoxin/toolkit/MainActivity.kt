@@ -12,13 +12,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayout
-import com.xiaoxin.basic.bean.getProvinceData
 import com.xiaoxin.basic.date.CalendarUtils
 import com.xiaoxin.basic.date.CalendarView
 import com.xiaoxin.basic.date.onItemSelectDate
-import com.xiaoxin.basic.permissions.OnPermissionCallback
-import com.xiaoxin.basic.permissions.Permission
-import com.xiaoxin.basic.permissions.XXPermissions
 import com.xiaoxin.basic.toast.ToastUtils
 import com.xiaoxin.basic.utils.log
 import com.xiaoxin.common.widget.LetterSideBar
@@ -172,9 +168,6 @@ class MainActivity : AppCompatActivity() {
             Log.e("字母", "${res}")
         }
 
-        val provinceData = getProvinceData(resources.assets.open("province.json"))
-        provinceData?.forEach { data ->
-        }
 
         cvCalender = activityMainBinding!!.cvCal
         cvCalender.getCalendarDate("2021-09-01", null)

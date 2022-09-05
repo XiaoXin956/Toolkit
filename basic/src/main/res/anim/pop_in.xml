@@ -3,7 +3,7 @@
 
 <!--    android:duration = "@android:integer/config_shortAnimTime"-->
     <translate
-        android:duration="3000"
+        android:duration="300"
         android:fromXDelta="0"
         android:fromYDelta="50%"
         android:toXDelta="0"

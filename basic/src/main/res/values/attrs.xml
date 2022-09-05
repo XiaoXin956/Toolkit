@@ -7,6 +7,16 @@
         <attr name="textSize" format="dimension" />
     </declare-styleable>
 
+    <!--标题-->
+    <declare-styleable name="ToolBarView">
+        <attr name="backgroundColor" format="color" />
+        <attr name="textColor" format="color" />
+        <attr name="centerTitle" format="string" />
+        <attr name="centerTitleSize" format="dimension" />
+        <attr name="leftIcon" format="reference" />
+        <attr name="leftImageColor" format="color" />
+    </declare-styleable>
+
     <!--日历-->
     <declare-styleable name="CalendarView">
         <!--是否单选-->
@@ -51,12 +61,10 @@
 
     </declare-styleable>
 
-<!--    滑动日历-->
+    <!--    滑动日历-->
     <declare-styleable name="PageCalendarView">
-
         <attr name="cache" format="integer" />
         <attr name="showDate" format="string" />
-
     </declare-styleable>
 
 

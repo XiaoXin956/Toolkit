@@ -1,12 +1,17 @@
-package com.xiaoxin.common.widget
+package com.xiaoxin.basic.widget
 
 import android.content.Context
+import android.content.res.TypedArray
 import android.graphics.Color
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import com.xiaoxin.basic.R
+import com.xiaoxin.basic.view.ViewUtils
 
 /**
  * @author: Admin
@@ -15,8 +20,57 @@ import androidx.appcompat.widget.Toolbar
 class ToolBarView : Toolbar {
 
     constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs){
+        init(attrs = attrs)
+    }
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
+        init(attrs = attrs)
+    }
+
+    fun init(attrs: AttributeSet?) {
+        val typedArray: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.ToolBarView)
+        val backgroundColor = typedArray.getColor(R.styleable.ToolBarView_backgroundColor,Color.WHITE)
+        val textTitle = typedArray.getString(R.styleable.ToolBarView_centerTitle)
+        val textColor = typedArray.getColor(R.styleable.ToolBarView_textColor, Color.WHITE)
+        val leftImageColor =
+            typedArray.getColor(R.styleable.ToolBarView_leftImageColor, Color.WHITE)
+        val leftIcon = typedArray.getResourceId(
+            R.styleable.ToolBarView_leftIcon,
+            R.drawable.ic_baseline_arrow_white_24
+        )
+        typedArray.recycle()
+
+        setDefaultTitle(textTitle.toString(), textColor = textColor)
+        setDefaultLeftImage(imageColor = leftImageColor, leftIcon = leftIcon)
+        this.setBackgroundColor(backgroundColor)
+    }
+
+    private var textTitleDefault: TextView? = null
+    fun setDefaultTitle(title: String, textColor: Int? = Color.BLACK) {
+        if (textTitleDefault==null) {
+            textTitleDefault = TextView(context)
+        }
+        textTitleDefault?.let {
+            it.text = title
+            it.setTextColor(textColor!!)
+            addCenter(it)
+        }
+    }
+
+    var leftTitleDefault: ImageView? = null
+    fun setDefaultLeftImage(imageColor: Int? = Color.BLACK, leftIcon: Int): Unit {
+        if (leftTitleDefault==null) {
+            leftTitleDefault = ImageView(context)
+        }
+        leftTitleDefault?.let {
+            it.setBackgroundResource(leftIcon)
+            addLeftMenu(it)
+        }
+    }
 
     fun findView(id: Int): View? {
         val childCount = this.childCount
