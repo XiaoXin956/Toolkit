@@ -8,7 +8,6 @@ import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.xiaoxin.basic.toast.ToastUtils
-import com.xiaoxin.common.base.ActivityManagers
 
 abstract class BaseActivity : AppCompatActivity(), View.OnClickListener {
 

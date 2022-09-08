@@ -1,4 +1,4 @@
-package com.xiaoxin.common.jsinterface
+package com.xiaoxin.basic.jsinterface
 
 import android.annotation.SuppressLint
 import android.app.Activity

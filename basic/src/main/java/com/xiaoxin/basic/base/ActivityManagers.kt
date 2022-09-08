@@ -1,4 +1,4 @@
-package com.xiaoxin.common.base
+package com.xiaoxin.basic.base
 
 import android.app.Activity
 import android.content.Context

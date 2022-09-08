@@ -1,4 +1,4 @@
-package com.xiaoxin.common.adapter
+package com.xiaoxin.basic.adapter
 
 import android.view.View
 import android.widget.AdapterView

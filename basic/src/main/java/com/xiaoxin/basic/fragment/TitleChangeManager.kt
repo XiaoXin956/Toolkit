@@ -1,4 +1,4 @@
-package com.xiaoxin.common.fragment
+package com.xiaoxin.basic.fragment
 
 /**
  * 修改activity 父容器的标题

@@ -1,6 +1,5 @@
 package com.xiaoxin.basic.currency
 
-//import android.icu.text.DecimalFormat
 import java.math.BigDecimal
 import java.text.DecimalFormat
 

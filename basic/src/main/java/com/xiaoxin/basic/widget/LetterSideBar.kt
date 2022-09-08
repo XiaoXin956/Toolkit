@@ -1,4 +1,4 @@
-package com.xiaoxin.common.widget
+package com.xiaoxin.basic.widget
 
 import android.content.Context
 import android.graphics.Canvas

@@ -17,9 +17,9 @@ import com.xiaoxin.basic.date.onItemSelectDate
 import com.xiaoxin.basic.toast.ToastUtils
 import com.xiaoxin.basic.utils.log
 import com.xiaoxin.basic.widget.ToolBarView
-import com.xiaoxin.common.widget.LetterSideBar
-import com.xiaoxin.common.widget.addTextChangeListener
-import com.xiaoxin.common.widget.click
+import com.xiaoxin.basic.widget.LetterSideBar
+import com.xiaoxin.basic.widget.addTextChangeListener
+import com.xiaoxin.basic.widget.click
 import com.xiaoxin.network.retrofit.LogConfig
 import com.xiaoxin.toolkit.databinding.ActivityMainBinding
 import com.xiaoxin.toolkit.viewmodel.UserViewModel

@@ -1,4 +1,4 @@
-package com.xiaoxin.common.adapter
+package com.xiaoxin.basic.adapter
 
 import android.database.DataSetObservable
 import android.database.DataSetObserver
@@ -24,11 +24,10 @@ abstract class BaseRecycleViewAdapter<T> : RecyclerView.Adapter<SmartViewHolder>
 
     // kt 点击事件
     lateinit var mKtListener: ((parent: AdapterView<*>?,view: View,position: Int,id: Long) -> Unit)
-    fun setKtListener(mKtListener: ((parent: AdapterView<*>?,view: View,position: Int,id: Long) -> Unit)): BaseRecycleViewAdapter<T>{
+    fun setKtListener(mKtListener: ((parent: AdapterView<*>?,view: View,position: Int,id: Long) -> Unit)): BaseRecycleViewAdapter<T> {
         this.mKtListener = mKtListener
         return this
     }
-
 
     open fun baseRecyclerAdapter(@LayoutRes layoutId: Int) {
         setHasStableIds(false)

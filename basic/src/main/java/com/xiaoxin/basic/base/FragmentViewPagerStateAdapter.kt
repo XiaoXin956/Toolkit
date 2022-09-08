@@ -1,8 +1,8 @@
-package com.xiaoxin.common.base
+package com.xiaoxin.basic.base
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.xiaoxin.common.bean.TitleFragmentMenu
+import com.xiaoxin.basic.bean.TitleFragmentMenu
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle

@@ -224,7 +224,7 @@
 
         </ScrollView>
 
-        <com.xiaoxin.common.widget.LetterSideBar
+        <com.xiaoxin.basic.widget.LetterSideBar
             android:id="@+id/ls_zim"
             android:layout_width="20dp"
             android:layout_height="match_parent"

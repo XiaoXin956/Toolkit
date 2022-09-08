@@ -1,4 +1,4 @@
-package com.xiaoxin.common.bean
+package com.xiaoxin.basic.bean
 
 import androidx.fragment.app.Fragment
 
