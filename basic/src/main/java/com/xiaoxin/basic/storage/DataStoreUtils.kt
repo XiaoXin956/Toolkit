@@ -1,19 +1,13 @@
 package com.xiaoxin.basic.storage
 
-import android.app.Application
 import android.content.Context
 import androidx.datastore.core.DataStore
-import androidx.datastore.dataStore
 import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
 import java.io.IOException
-import kotlin.jvm.Throws
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "common")
 
