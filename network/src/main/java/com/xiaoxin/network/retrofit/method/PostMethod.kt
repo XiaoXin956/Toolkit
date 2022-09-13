@@ -68,7 +68,7 @@ class PostMethod() : BaseParam() {
             } else {
                 api?.post(url = url, headers = headers, requestBody = requestBody)
             }
-            success?.invoke(post!!)
+            success?.invoke(gson.toJson(post))
         } catch (ex: Exception) {
             error?.invoke(ex)
         }

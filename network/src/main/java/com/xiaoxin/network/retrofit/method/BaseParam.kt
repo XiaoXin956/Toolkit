@@ -1,5 +1,6 @@
 package com.xiaoxin.network.retrofit.method
 
+import com.google.gson.Gson
 import kotlin.collections.HashMap
 
 /**
@@ -11,6 +12,7 @@ abstract class BaseParam {
     protected lateinit var url: String
     protected var headers: HashMap<String, Any> = HashMap()
     protected var requestType: HttpParamWay = HttpParamWay.NONE
+    protected val gson:Gson = Gson()
 
     open suspend fun requestT(
         success: ((Any) -> Unit)? = null,
