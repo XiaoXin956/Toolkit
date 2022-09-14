@@ -51,7 +51,6 @@ ext {
             test_impl_espresso_core                  : "androidx.test.espresso:espresso-core:${rootProject.ext.common.espresso_core}",
             test_impl_junit                          : "junit:junit:${rootProject.ext.common.junit}",
 
-
             impl_datastore                           : "androidx.datastore:datastore:${rootProject.ext.common.datastore}",
             impl_datastore_preferences               : "androidx.datastore:datastore-preferences:${rootProject.ext.common.datastore}",
 
@@ -89,7 +88,7 @@ ext {
 
             impl_retrofit                            : "com.squareup.retrofit2:retrofit:${rootProject.ext.network.retrofit2}",
             impl_retrofit_converter_gson             : "com.squareup.retrofit2:converter-gson:${rootProject.ext.network.retrofit2_converter_gson}",
-//            impl_okhttp3                         : "com.squareup.okhttp3:okhttp:${rootProject.ext.network.okhttp3_okhttp}",
+            impl_okhttp3                             : "com.squareup.okhttp3:okhttp:${rootProject.ext.network.okhttp3_okhttp}",
 
             // 网络 end
 
