@@ -27,7 +27,7 @@ class GetMethod() : BaseParam() {
         return this
     }
 
-    fun addHeader(header:String,value:Any):GetMethod{
+    fun addHeader(header: String, value: Any): GetMethod {
         this.headers.let {
             it[header] = value
         }
@@ -54,18 +54,13 @@ class GetMethod() : BaseParam() {
             } else {
                 api?.get(url = url, headers = headers, map = queryMap)
             }
-            success?.invoke(get!!)
+            success?.invoke(gson.toJson(get))
         } catch (ex: Exception) {
             error?.invoke(ex)
         }
-
     }
 
     override suspend fun request(): Any? {
-
-
-
-
         return super.request()
     }
 }
