@@ -1,5 +1,6 @@
 package com.xiaoxin.basic.widget
 
+import android.app.Activity
 import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.Color
@@ -61,11 +62,13 @@ class ToolBarView : Toolbar {
         }
     }
 
-
     var leftTitleDefault: ImageView? = null
     fun setDefaultLeftImage(imageColor: Int? = Color.BLACK, leftIcon: Int): Unit {
         if (leftTitleDefault==null) {
             leftTitleDefault = ImageView(context)
+        }
+        leftTitleDefault?.setOnClickListener {
+            (context as Activity).finish()
         }
         leftTitleDefault?.let {
             it.setBackgroundResource(leftIcon)

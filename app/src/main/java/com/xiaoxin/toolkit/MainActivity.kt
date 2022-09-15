@@ -117,8 +117,6 @@ class MainActivity : AppCompatActivity() {
 //            var intent = Intent(this, HitokotoActivity::class.java)
 //            startActivity(intent)
 
-
-
         }
 
         btn_up_load = findViewById(R.id.btn_up_load)
