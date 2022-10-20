@@ -1,56 +1,41 @@
-package com.xiaoxin.basic.widget;
+package com.xiaoxin.basic.widget
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.MotionEvent;
+import android.content.Context
+import android.util.AttributeSet
+import android.view.MotionEvent
+import androidx.viewpager.widget.ViewPager
 
-import androidx.viewpager.widget.ViewPager;
+class NoScrollViewPager : ViewPager {
+    private var noScroll = false
 
-public class NoScrollViewPager extends ViewPager {
-
-    private boolean noScroll = false;
-
-    public NoScrollViewPager(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    constructor(context: Context?, attrs: AttributeSet?) : super(
+        context!!, attrs
+    ) {
     }
 
-    public NoScrollViewPager(Context context) {
-        super(context);
+    constructor(context: Context?) : super(context!!) {}
+
+    fun setNoScroll(noScroll: Boolean) {
+        this.noScroll = noScroll
     }
 
-    public void setNoScroll(boolean noScroll) {
-        this.noScroll = noScroll;
+    override fun scrollTo(x: Int, y: Int) {
+        super.scrollTo(x, y)
     }
 
-    @Override
-    public void scrollTo(int x, int y) {
-        super.scrollTo(x, y);
+    override fun onTouchEvent(arg0: MotionEvent): Boolean {
+        return if (noScroll) false else super.onTouchEvent(arg0)
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent arg0) {
-        if (noScroll)
-            return false;
-        else
-            return super.onTouchEvent(arg0);
+    override fun onInterceptTouchEvent(arg0: MotionEvent): Boolean {
+        return if (noScroll) false else super.onInterceptTouchEvent(arg0)
     }
 
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent arg0) {
-        if (noScroll)
-            return false;
-        else
-            return super.onInterceptTouchEvent(arg0);
+    override fun setCurrentItem(item: Int, smoothScroll: Boolean) {
+        super.setCurrentItem(item, smoothScroll)
     }
 
-    @Override
-    public void setCurrentItem(int item, boolean smoothScroll) {
-        super.setCurrentItem(item, smoothScroll);
+    override fun setCurrentItem(item: Int) {
+        super.setCurrentItem(item)
     }
-
-    @Override
-    public void setCurrentItem(int item) {
-        super.setCurrentItem(item);
-    }
-
 }

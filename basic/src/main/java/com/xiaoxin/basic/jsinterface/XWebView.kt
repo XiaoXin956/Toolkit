@@ -16,7 +16,6 @@ import android.webkit.WebViewClient
  */
 object XWebView {
 
-
     fun initWebView(
         context: Activity,
         webBase: WebView,
