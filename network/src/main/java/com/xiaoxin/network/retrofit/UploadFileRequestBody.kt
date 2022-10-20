@@ -75,10 +75,7 @@ class UploadFileRequestBody : RequestBody {
 
     private fun sink(sink: Sink): Sink {
         return object : ForwardingSink(sink) {
-            //当前写入字节数
             var bytesWritten = 0L
-
-            //总字节长度，避免多次调用contentLength()方法
             var contentLength = 0L
 
             override fun write(source: Buffer, byteCount: Long) {
