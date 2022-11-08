@@ -14,7 +14,7 @@ import kotlin.collections.HashMap
 class PostMethod() : BaseParam() {
 
     private var api: IAPIService? = null
-    private lateinit var dataMap: Map<String, Any>
+    private var dataMap: Map<String, Any> = HashMap()
     private var loadMonitorListener: ((Long) -> Unit)? = null
 
     constructor(api: IAPIService) : this() {
