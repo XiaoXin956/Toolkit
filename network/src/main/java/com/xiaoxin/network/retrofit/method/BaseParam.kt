@@ -21,6 +21,13 @@ abstract class BaseParam {
 
     }
 
+    open suspend fun requestAny(
+        success: ((Any) -> Unit)? = null,
+        error: ((Any) -> Unit)? = null
+    ) {
+
+    }
+
     open suspend fun request() :Any? {
         return null
     }

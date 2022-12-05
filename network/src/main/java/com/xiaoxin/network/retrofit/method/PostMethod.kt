@@ -16,6 +16,7 @@ class PostMethod() : BaseParam() {
     private var api: IAPIService? = null
     private var dataMap: Map<String, Any> = HashMap()
     private var loadMonitorListener: ((Long) -> Unit)? = null
+    private var dataAny:Any = Any()
 
     constructor(api: IAPIService) : this() {
         this.api = api
@@ -40,6 +41,11 @@ class PostMethod() : BaseParam() {
 
     fun setDataMap(dataMap: Map<String, Any>): PostMethod {
         this.dataMap = dataMap
+        return this
+    }
+
+    fun  setDataAny(dataAny:Any):PostMethod{
+        this.dataAny = dataAny
         return this
     }
 
@@ -74,4 +80,21 @@ class PostMethod() : BaseParam() {
         }
     }
 
+    override suspend fun requestAny(success: ((Any) -> Unit)?, error: ((Any) -> Unit)?) {
+        val requestBody: RequestBody = if (loadMonitorListener != null) {
+            UploadFileRequestBody(dataMap, loadMonitorListener!!)
+        } else {
+            RequestBody.create(MediaType.parse("application/json"), Gson().toJson(dataAny))
+        }
+        try {
+            val post = if (requestType == HttpParamWay.FORM) {
+                api?.post(url = url, headers = headers, fieldMap = dataMap)
+            } else {
+                api?.post(url = url, headers = headers, requestBody = requestBody)
+            }
+            success?.invoke(gson.toJson(post))
+        } catch (ex: Exception) {
+            error?.invoke(ex)
+        }
+    }
 }
