@@ -33,5 +33,4 @@ open class BaseRepository {
             .getInstance()
     }
 
-
 }
