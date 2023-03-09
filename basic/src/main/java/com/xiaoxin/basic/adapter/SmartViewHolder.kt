@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
  * @author: Admin
  * @date: 2021-08-27
  */
-class SmartViewHolder(itemView: View, var mKtListener: ((parent: AdapterView<*>?, view: View, position: Int, id: Long) -> Unit)) :
+class SmartViewHolder(itemView: View, var mKtListener: ((parent: AdapterView<*>?, view: View,
+                                                         position: Int, id: Long) -> Unit)) :
     RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
     var mPosition: Int = -1

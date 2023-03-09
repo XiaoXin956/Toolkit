@@ -6,12 +6,12 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk rootProject.ext.common["compileSdkVersion"]
 
     defaultConfig {
         applicationId "com.xiaoxin.toolkit"
-        minSdk 23
-        targetSdk 31
+        minSdk rootProject.ext.common["minSdkVersion"]
+        targetSdk rootProject.ext.common["targetSdkVersion"]
         versionCode 1
         versionName "1.0"
 
@@ -51,6 +51,7 @@ dependencies {
     implementation project(path: ':network')
     implementation project(path: ':pay')
     implementation project(path: ':map')
+    implementation project(path: ':basic-compose')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
