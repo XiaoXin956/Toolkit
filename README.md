@@ -4,15 +4,20 @@
 
 <code>
 
-    implementation 'com.github.XiaoXin956.Toolkit:network:2.0.7'
+    implementation 'com.github.XiaoXin956.Toolkit:network:2.1.0'
 
-    implementation 'com.github.XiaoXin956.Toolkit:basic:2.0.7'
+    implementation 'com.github.XiaoXin956.Toolkit:basic-compose:2.1.0'
+
+    implementation 'com.github.XiaoXin956.Toolkit:basic:2.1.0'
+
+    implementation 'com.github.XiaoXin956.Toolkit:map:2.1.0'
 
 </code>
 
 ### 常用工具封装
 
 ### basic
+
 
 ### map
 
@@ -71,7 +76,3 @@ val maps = mapOf(key to value)
   // 解析 }
   )
 ```
-
-### pay
-
-
