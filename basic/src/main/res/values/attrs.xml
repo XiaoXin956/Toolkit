@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="LetterSideBar">
+        <attr name="selectColor" format="color" />
+        <attr name="unSelectColor" format="color" />
+        <attr name="textSize" format="dimension" />
+    </declare-styleable>
+
+    <!--标题-->
+    <declare-styleable name="ToolBarView">
+        <attr name="backgroundColor" format="color" />
+        <attr name="textColor" format="color" />
+        <attr name="centerTitle" format="string" />
+        <attr name="centerTitleSize" format="dimension" />
+        <attr name="leftIcon" format="reference" />
+        <attr name="leftImageColor" format="color" />
+    </declare-styleable>
+
+    <!--日历-->
+    <declare-styleable name="CalendarView">
+        <!--是否单选-->
+        <attr name="isSingle" format="boolean" />
+        <!--开始时间-->
+        <attr name="startTime" format="string" />
+        <!--结束时间-->
+        <attr name="endTime" format="string" />
+        <!--一周从周几开始，1 或者 7-->
+        <attr name="firstWeek" format="integer" />
+        <!--是否显示周-->
+        <attr name="isShowWeek" format="boolean" />
+        <!--文本大小-->
+        <attr name="calendarTextSize" format="dimension" />
+        <!--年月文本颜色-->
+        <attr name="yearMonthTextColor" format="reference|color" />
+        <!--禁选文本颜色-->
+        <attr name="banSelectTextColor" format="reference|color" />
+        <!--选中文本颜色-->
+        <attr name="selectTextColor" format="reference|color" />
+        <!--未选中文本颜色-->
+        <attr name="unSelectTextColor" format="reference|color" />
+        <!--行距-->
+        <attr name="itemLineHeight" format="dimension" />
+        <!--开始时间-->
+        <attr name="dateStart" format="string" />
+        <!--结束时间-->
+        <attr name="dateEnd" format="string" />
+        <!--选中文本背景-->
+        <attr name="banSelectBackground" format="reference|color" />
+        <!--选中文本背景-->
+        <attr name="selectBackground" format="reference|color" />
+        <!--未选中背景-->
+        <attr name="unSelectBackground" format="reference|color" />
+        <!--选中开始文本背景-->
+        <attr name="selectStartBackground" format="reference|color" />
+        <!--选中结束文本背景-->
+        <attr name="selectEndBackground" format="reference|color" />
+        <!--选中单选文本背景-->
+        <attr name="selectSingleBackground" format="reference|color" />
+
+
+    </declare-styleable>
+
+    <!--    滑动日历-->
+    <declare-styleable name="PageCalendarView">
+        <attr name="cache" format="integer" />
+        <attr name="showDate" format="string" />
+    </declare-styleable>
+
+
+</resources>

@@ -1,0 +1,103 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
+}
+
+android {
+    namespace 'com.xiaoxin.basiccompose'
+    compileSdk rootProject.ext.common["compileSdkVersion"]
+
+    defaultConfig {
+        minSdk rootProject.ext.common["minSdkVersion"]
+        targetSdk rootProject.ext.common["targetSdkVersion"]
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
+
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                // 自定义发布的属性
+                groupId = 'com.xiaoxin.basic_compose'
+                artifactId = 'basic_compose'
+                version = '1.1.7'
+
+            }
+        }
+    }
+}
+
+dependencies {
+
+    testImplementation rootProject.ext.dependencies.test_impl_junit
+    androidTestImplementation rootProject.ext.dependencies.test_impl_androidx_junit
+    androidTestImplementation rootProject.ext.dependencies.test_impl_espresso_core
+//    testImplementation rootProject.ext.dependencies.test_impl_junit_coroutines
+    androidTestImplementation rootProject.ext.dependencies.impl_android_test_compose_junit4
+    debugImplementation rootProject.ext.dependencies.impl_debug_impl_test_tooling
+    debugImplementation rootProject.ext.dependencies.impl_debug_impl_test_manifest
+
+    api rootProject.ext.dependencies.impl_androidx_core_ktx
+    api rootProject.ext.dependencies.impl_appcompat
+    api rootProject.ext.dependencies.impl_kotiln_version
+    api rootProject.ext.dependencies.impl_kotiln_stdlib_jdk7
+
+//    implementation rootProject.ext.dependencies.impl_compose_lifecycle_runtime_ktx
+    api rootProject.ext.dependencies.impl_compose_activity_compose
+    api rootProject.ext.dependencies.impl_compose_compose_ui
+    api rootProject.ext.dependencies.impl_compose_compose_ui_tooling_preview
+    api rootProject.ext.dependencies.impl_compose_compose_material3
+    api rootProject.ext.dependencies.impl_constraintlayout_compose
+
+    api rootProject.ext.dependencies.imple_camera
+    api rootProject.ext.dependencies.imple_camera_lifecycle
+    api rootProject.ext.dependencies.imple_camera_view
+    api rootProject.ext.dependencies.impl_zxing
+
+
+    api rootProject.ext.dependencies.impl_accompanist_insets
+    api rootProject.ext.dependencies.impl_accompanist_insets_ui
+    api rootProject.ext.dependencies.impl_accompanist_systemuicontroller
+    api rootProject.ext.dependencies.impl_accompanist_pager
+    api rootProject.ext.dependencies.impl_accompanist_pager_indicators
+    api rootProject.ext.dependencies.impl_accompanist_permissions
+    api rootProject.ext.dependencies.impl_accompanist_flowlayout
+    api rootProject.ext.dependencies.impl_accompanist_navigation_animation
+    api rootProject.ext.dependencies.impl_accompanist_navigation_material
+    api rootProject.ext.dependencies.impl_accompanist_swiperefresh
+
+
+}
