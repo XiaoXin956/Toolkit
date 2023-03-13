@@ -1,6 +1,6 @@
 ext {
 
-    // 通用
+    // 通用模块配置
     common = [
             compileSdkVersion : 33,
             minSdkVersion     : 23,
@@ -8,7 +8,6 @@ ext {
 
             espresso_core     : "3.4.0",
             junit             : "4.13.2",
-            junit_coroutines  : "1.6.4",
             androidx_junit    : "1.1.3",
 
             material          : "1.4.0",
@@ -16,49 +15,49 @@ ext {
             appcompat         : "1.4.1",
             androidx_core_ktx : "1.8.0",
             kotlin_version    : "1.6.0",
-            androidx          : "1.3.0",
-
-            // 数据库
             room_version      : "2.3.0",
             // 数据
             datastore         : "1.0.0",
+
+            androidx          : "1.3.0",
             // 相片
             glide             : "4.12.0",
-            // 图片
             coil              : "2.1.0",
             // 解析
-            gson              : "2.10.1",
+            gson              : "2.8.9",
+            banner            : "2.2.2",
+
             // 上、下刷新，头部
             SmartRefreshLayout: "2.0.5",
-            // 屏幕适配
+
+            pictureselector   : "v3.0.5",
+
             autosize          : "v1.2.1",
 
-            zxing_version     : "3.5.0",
 
+            zxing_version     : "3.5.0",
 
     ]
 
 
     commom_compose = [
 
-            lifecycle_runtime_ktx           : "2.3.1",
-            activity_compose                : "1.3.1",
-            compose_ui                      : "1.2.0",
-            compose_ui_tooling_preview      : "1.2.0",
-            compose_material3               : "1.0.0-alpha02",
-            android_test_impl_junit4        : "1.2.0",
-            debug_test_impl_tooling         : "1.2.0",
-            debug_test_impl_test_manifest   : "1.2.0",
+            lifecycle_runtime_ktx        : "2.3.1",
+            activity_compose             : "1.3.1",
+            compose_ui                   : "1.2.0",
+            compose_ui_tooling_preview   : "1.2.0",
+            compose_material3            : "1.0.0-alpha02",
+            android_test_impl_junit4     : "1.2.0",
+            debug_test_impl_tooling      : "1.2.0",
+            debug_test_impl_test_manifest: "1.2.0",
 
             // CameraX
-            camera2                         : "1.2.1",
-            camera2_lifecycle               : "1.2.1",
-            camera2_view                    : "1.2.1",
+            camera2                      : "1.2.1",
+            camera2_lifecycle            : "1.2.1",
+            camera2_view                 : "1.2.1",
 
-            compose_accompanist_version            : "0.26.5-rc",
-            constraintlayout_compose            : "1.0.0",
-
-//
+            compose_accompanist_version  : "0.26.5-rc",
+            constraintlayout_compose     : "1.0.0",
 
     ]
 
@@ -66,18 +65,21 @@ ext {
     network = [
             retrofit2                           : "2.9.0",
             retrofit2_converter_gson            : "2.9.0",
+            rxandroid                           : "2.1.1",
             okhttp3_okhttp                      : "4.9.0",
-            kotlinx_coroutines_android          : "1.6.4", // 协程
-            kotlinx_coroutines_android_viewmodel: "2.4.1",
-            websocket_version                   : "1.5.3" // websocket
+            kotlinx_coroutines_android          : "1.6.0-RC", // 协程
+            kotlinx_coroutines_android_viewmodel: "2.3.1"
     ]
 
+    // 依赖
     dependencies = [
 
             test_impl_androidx_junit                 : "androidx.test.ext:junit:${rootProject.ext.common.androidx_junit}",
-            test_impl_espresso_core                  : "androidx.test.espresso:espresso-core:${rootProject.ext.common.espresso_core}",
+            test_impl_android_espresso_core          : "androidx.test.espresso:espresso-core:${rootProject.ext.common.espresso_core}",
             test_impl_junit                          : "junit:junit:${rootProject.ext.common.junit}",
-            test_impl_junit_coroutines               : "org.jetbrains.kotlinx:kotlinx-coroutines-test:${rootProject.ext.common.junit_coroutines}",
+
+            impl_datastore                           : "androidx.datastore:datastore:${rootProject.ext.common.datastore}",
+            impl_datastore_preferences               : "androidx.datastore:datastore-preferences:${rootProject.ext.common.datastore}",
 
             impl_constraintlayout                    : "androidx.constraintlayout:constraintlayout:${rootProject.ext.common.constraintlayout}",
             impl_material                            : "com.google.android.material:material:${rootProject.ext.common.material}",
@@ -85,6 +87,7 @@ ext {
             impl_androidx_core_ktx                   : "androidx.core:core-ktx:${rootProject.ext.common.androidx_core_ktx}",
             impl_kotiln_version                      : "org.jetbrains.kotlin:kotlin-stdlib:${rootProject.ext.common.kotlin_version}",
             impl_kotiln_stdlib_jdk7                  : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${rootProject.ext.common.kotlin_version}",
+
             // 数据库
             impl_room                                : "androidx.room:room-runtime:${rootProject.ext.common.room_version}",
             impl_room_ktp                            : "androidx.room:room-compiler:${rootProject.ext.common.room_version}",
@@ -92,30 +95,31 @@ ext {
             impl_room_compiler_processing_testing    : "androidx.room:room-compiler-processing-testing:${rootProject.ext.common.room_version}",
             impl_room_ktx                            : "androidx.room:room-ktx:${rootProject.ext.common.room_version}",
             impl_room_testing                        : "androidx.room.room-testing:${rootProject.ext.common.room_version}",
-            // 数据存储
-            impl_datastore                           : "androidx.datastore:datastore:${rootProject.ext.common.datastore}",
-            impl_datastore_preferences               : "androidx.datastore:datastore-preferences:${rootProject.ext.common.datastore}",
-            // 解析
+            // 上下拉刷新
+            impl_smart_refresh_layout                : "io.github.scwang90:refresh-layout-kernel:${rootProject.ext.common.SmartRefreshLayout}",
+            impl_smart_refresh_header                : "io.github.scwang90:refresh-header-material:${rootProject.ext.common.SmartRefreshLayout}",
+
+            //数据解析
             impl_gson                                : "com.google.code.gson:gson:${rootProject.ext.common.gson}",
             impl_zxing                               : "com.google.zxing:core:${rootProject.ext.common.zxing_version}",
-            // 图片库
+
             impl_glide_compiler                      : "com.github.bumptech.glide:compiler:${rootProject.ext.common.glide}",
             impl_glide                               : "com.github.bumptech.glide:glide:${rootProject.ext.common.glide}",
             impl_coil                                : "io.coil-kt:coil:${rootProject.ext.common.coil}",
-            //// 上下拉刷新
-            impl_smart_refresh_layout                : "io.github.scwang90:refresh-layout-kernel:${rootProject.ext.common.SmartRefreshLayout}",
-            impl_smart_refresh_header                : "io.github.scwang90:refresh-header-material:${rootProject.ext.common.SmartRefreshLayout}",
+
+            impl_banner                              : "io.github.youth5201314:banner:${rootProject.ext.common.banner}",
+
+            // 网络 begin
             // 协程
             impl_kotlinx_coroutines_android          : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${rootProject.ext.network.kotlinx_coroutines_android}",
             impl_kotlinx_coroutines_android_viewmodel: "androidx.lifecycle:lifecycle-viewmodel-ktx:${rootProject.ext.network.kotlinx_coroutines_android_viewmodel}",
-            // 网络
+
             impl_retrofit                            : "com.squareup.retrofit2:retrofit:${rootProject.ext.network.retrofit2}",
             impl_retrofit_converter_gson             : "com.squareup.retrofit2:converter-gson:${rootProject.ext.network.retrofit2_converter_gson}",
 //            impl_okhttp3                             : "com.squareup.okhttp3:okhttp:${rootProject.ext.network.okhttp3_okhttp}",
-            // websocket
-            impl_web_socket                          : "org.java-websocket:Java-WebSocket:${rootProject.ext.network.websocket_version}",
-            // 适配
-            impl_autosize                            : "com.github.JessYanCoding:AndroidAutoSize:${rootProject.ext.common.autosize}",
+
+            // 网络 end
+
             // 相册
             impl_picutre                             : "io.github.lucksiege:pictureselector:${rootProject.ext.common.pictureselector}",
             // image compress library (Not necessary)
@@ -124,6 +128,8 @@ ext {
             impl_picutre_ucrop                       : "io.github.lucksiege:ucrop:${rootProject.ext.common.pictureselector}",
             // imple camerax library (Not necessary)
             impl_picutre_camerax                     : "io.github.lucksiege:camerax:${rootProject.ext.common.pictureselector}",
+            // 适配
+            impl_autosize                            : "com.github.JessYanCoding:AndroidAutoSize:${rootProject.ext.common.autosize}",
 
 
             // compose
@@ -131,12 +137,13 @@ ext {
             impl_debug_impl_test_tooling             : "androidx.compose.ui:ui-tooling:${rootProject.ext.commom_compose.debug_test_impl_tooling}",
             impl_debug_impl_test_manifest            : "androidx.compose.ui:ui-test-manifest:${rootProject.ext.commom_compose.debug_test_impl_test_manifest}",
 
-//            impl_compose_lifecycle_runtime_ktx       : "androidx.lifecycle:lifecycle-runtime-ktx:${rootProject.ext.commom_compose.lifecycle_runtime_ktx}",
+            impl_compose_lifecycle_runtime_ktx       : "androidx.lifecycle:lifecycle-runtime-ktx:${rootProject.ext.commom_compose.lifecycle_runtime_ktx}",
             impl_compose_activity_compose            : "androidx.activity:activity-compose:${rootProject.ext.commom_compose.activity_compose}",
             impl_compose_compose_ui                  : "androidx.compose.ui:ui:${rootProject.ext.commom_compose.compose_ui}",
             impl_compose_compose_ui_tooling_preview  : "androidx.compose.ui:ui-tooling-preview:${rootProject.ext.commom_compose.compose_ui_tooling_preview}",
             impl_compose_compose_material3           : "androidx.compose.material3:material3:${rootProject.ext.commom_compose.compose_material3}",
-            impl_constraintlayout_compose: "androidx.constraintlayout:constraintlayout-compose:${rootProject.ext.commom_compose.constraintlayout_compose}",
+            impl_constraintlayout_compose            : "androidx.constraintlayout:constraintlayout-compose:${rootProject.ext.commom_compose.constraintlayout_compose}",
+
 
             //CameraX
             imple_camera                             : "androidx.camera:camera-camera2:${rootProject.ext.commom_compose.camera2}",
@@ -155,8 +162,5 @@ ext {
             impl_accompanist_swiperefresh            : "com.google.accompanist:accompanist-swiperefresh:${rootProject.ext.commom_compose.compose_accompanist_version}",
 
 
-
     ]
-
-
 }

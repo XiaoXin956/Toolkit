@@ -28,14 +28,16 @@ open class RetrofitManager {
     private var apiService: IAPIService? = null
     private var baseRetrofitManager: RetrofitManager? = null
 
+    private var timeout:Long = 70
+
     private val gson: Gson by lazy {
         GsonBuilder().setDateFormat("yyyy-MM-dd hh:mm:ss").create()
     }
     private val okHttpClient: OkHttpClient by lazy {
         OkHttpClient.Builder()
-            .connectTimeout(70, TimeUnit.SECONDS) //连接服务器超时
-            .readTimeout(70, TimeUnit.SECONDS) //读取服务器的数据超时
-            .writeTimeout(70, TimeUnit.SECONDS) //写入本地的数据超时
+            .connectTimeout(timeout, TimeUnit.SECONDS) //连接服务器超时
+            .readTimeout(timeout, TimeUnit.SECONDS) //读取服务器的数据超时
+            .writeTimeout(timeout, TimeUnit.SECONDS) //写入本地的数据超时
             .addInterceptor(CustomInterceptors.HeaderInterceptors())
             .addInterceptor(CustomInterceptors.LoggingInterceptors())
             .build()

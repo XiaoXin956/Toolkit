@@ -63,7 +63,7 @@ class CustomInterceptors {
                 val requestBody = request.body()
                 val charset = Charset.forName("UTF-8")
                 requestBody?.contentType()?.charset(charset)
-                var buffer = Buffer()
+                val buffer = Buffer()
                 requestBody?.writeTo(buffer)
                 Log.d("network", "方法：${request.method()}地址：${request.url().url()} 数据：${buffer.readString(charset)}")
                 val response = chain.proceed(request)

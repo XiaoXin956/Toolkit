@@ -1,10 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id 'kotlin-kapt'
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
 }
+
 
 android {
 
@@ -48,6 +48,7 @@ android {
     dataBinding {
         enabled = true
     }
+
 }
 
 afterEvaluate {
@@ -57,11 +58,12 @@ afterEvaluate {
             release(MavenPublication) {
                 // Applies the component for the release build variant.
                 from components.release
-
+                // You can then customize attributes of the publication as shown below.
                 groupId = 'com.xiaoxin.basic'
                 artifactId = 'basic'
-                version = '1.1.7'
+                version = '2.0.0'
             }
+
         }
     }
 }
@@ -70,8 +72,7 @@ dependencies {
 
     testImplementation rootProject.ext.dependencies.test_impl_junit
     androidTestImplementation rootProject.ext.dependencies.test_impl_androidx_junit
-    androidTestImplementation rootProject.ext.dependencies.test_impl_espresso_core
-//    testImplementation rootProject.ext.dependencies.test_impl_junit_coroutines
+    androidTestImplementation rootProject.ext.dependencies.test_impl_android_espresso_core
 
     api rootProject.ext.dependencies.impl_constraintlayout
     api rootProject.ext.dependencies.impl_androidx_core_ktx
@@ -79,17 +80,22 @@ dependencies {
     api rootProject.ext.dependencies.impl_appcompat
     api rootProject.ext.dependencies.impl_kotiln_version
     api rootProject.ext.dependencies.impl_kotiln_stdlib_jdk7
+
     api rootProject.ext.dependencies.impl_gson
     // 图片加载
     api rootProject.ext.dependencies.impl_glide_compiler
     api rootProject.ext.dependencies.impl_glide
     api rootProject.ext.dependencies.impl_coil
-    // 数据
+
+    // 轮播
+    api rootProject.ext.dependencies.impl_banner
     api rootProject.ext.dependencies.impl_datastore
     api rootProject.ext.dependencies.impl_datastore_preferences
+
     // 屏幕适配
     api rootProject.ext.dependencies.impl_autosize
     // 刷新
     api rootProject.ext.dependencies.impl_smart_refresh_layout
     api rootProject.ext.dependencies.impl_smart_refresh_header
+
 }

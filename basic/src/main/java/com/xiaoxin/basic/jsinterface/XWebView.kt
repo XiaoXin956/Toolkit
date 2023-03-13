@@ -2,13 +2,10 @@ package com.xiaoxin.basic.jsinterface
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.view.View
-import android.webkit.WebSettings
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 
 /**
  * @author: Admin
@@ -33,7 +30,8 @@ object XWebView {
         savePassword: Boolean = true,
         domStorageEnabled: Boolean = true,
         isSaveEnabled: Boolean = true,
-        keepScreenOn: Boolean = true
+        keepScreenOn: Boolean = true,
+        choosePicture: ((filePathCallback: ValueCallback<Array<Uri>>) -> Unit)
     ) {
         val webSettings = webBase.settings
         webSettings.cacheMode = cacheMode //加载缓存否则网络
@@ -84,8 +82,19 @@ object XWebView {
             }
         }
 
-    }
+        val webChromeClient = object :WebChromeClient(){
+            override fun onPermissionRequest(request: PermissionRequest) {
+                request.grant(request.resources)
+                request.origin
+            }
 
+            override fun onShowFileChooser(webView: WebView?, filePathCallback: ValueCallback<Array<Uri>>, fileChooserParams: FileChooserParams): Boolean {
+                choosePicture(filePathCallback)
+                return true
+            }
+        }
+        webBase.webChromeClient = webChromeClient
+    }
 
     fun loadData(webView: WebView, content: String) {
         webView.loadDataWithBaseURL(null, content, "text/html", "UTF-8", null) //这种写法可以正确解码
@@ -121,6 +130,7 @@ object XWebView {
     fun addBridgeInterface(webView: WebView, obj: Any, jsName: String) {
         webView.addJavascriptInterface(obj, jsName)
     }
+
 
     interface OnWebViewLoad {
         fun onPageStarted()

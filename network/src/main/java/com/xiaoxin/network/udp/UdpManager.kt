@@ -75,10 +75,7 @@ class UdpManager {
         }
     }
 
-    /**
-     * 需要关闭
-     */
-
+    // 需要关闭
     fun onDestroy() {
         if (socket != null) {
             socket?.close()

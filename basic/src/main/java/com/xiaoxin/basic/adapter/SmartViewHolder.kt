@@ -1,7 +1,6 @@
 package com.xiaoxin.basic.adapter
 
 import android.view.View
-import android.widget.Adapter
 import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
@@ -24,7 +23,7 @@ class SmartViewHolder(
 
     override fun onClick(v: View) {
         listener.let {
-            var position = adapterPosition
+            val position = adapterPosition
             if(position>0){
                 it.invoke(null,v,position,itemId)
             }else{

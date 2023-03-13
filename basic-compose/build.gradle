@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id 'kotlin-kapt'
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
 }
@@ -16,6 +15,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        vectorDrawables {
+            useSupportLibrary true
+        }
     }
 
     buildTypes {
@@ -31,15 +33,17 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
     buildFeatures {
-        compose = true
+        compose true
     }
-
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion '1.1.1'
     }
-
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
 }
 
 afterEvaluate {
@@ -49,12 +53,10 @@ afterEvaluate {
             release(MavenPublication) {
                 // Applies the component for the release build variant.
                 from components.release
-
-                // 自定义发布的属性
-                groupId = 'com.xiaoxin.basic_compose'
-                artifactId = 'basic_compose'
-                version = '1.1.7'
-
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'com.xiaoxin.basic-compose'
+                artifactId = 'basic-compose'
+                version = '2.0.0'
             }
         }
     }
@@ -64,29 +66,26 @@ dependencies {
 
     testImplementation rootProject.ext.dependencies.test_impl_junit
     androidTestImplementation rootProject.ext.dependencies.test_impl_androidx_junit
-    androidTestImplementation rootProject.ext.dependencies.test_impl_espresso_core
-//    testImplementation rootProject.ext.dependencies.test_impl_junit_coroutines
-    androidTestImplementation rootProject.ext.dependencies.impl_android_test_compose_junit4
-    debugImplementation rootProject.ext.dependencies.impl_debug_impl_test_tooling
-    debugImplementation rootProject.ext.dependencies.impl_debug_impl_test_manifest
+    androidTestImplementation rootProject.ext.dependencies.test_impl_android_espresso_core
 
-    api rootProject.ext.dependencies.impl_androidx_core_ktx
-    api rootProject.ext.dependencies.impl_appcompat
-    api rootProject.ext.dependencies.impl_kotiln_version
-    api rootProject.ext.dependencies.impl_kotiln_stdlib_jdk7
+    implementation rootProject.ext.dependencies.impl_androidx_core_ktx
+    implementation rootProject.ext.dependencies.impl_appcompat
+    implementation rootProject.ext.dependencies.impl_material
+    implementation rootProject.ext.dependencies.impl_compose_lifecycle_runtime_ktx
+    implementation rootProject.ext.dependencies.impl_compose_activity_compose
+    implementation rootProject.ext.dependencies.impl_compose_compose_ui
+    implementation rootProject.ext.dependencies.impl_compose_compose_ui_tooling_preview
+    implementation rootProject.ext.dependencies.impl_compose_compose_material3
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
 
-//    implementation rootProject.ext.dependencies.impl_compose_lifecycle_runtime_ktx
-    api rootProject.ext.dependencies.impl_compose_activity_compose
-    api rootProject.ext.dependencies.impl_compose_compose_ui
-    api rootProject.ext.dependencies.impl_compose_compose_ui_tooling_preview
-    api rootProject.ext.dependencies.impl_compose_compose_material3
-    api rootProject.ext.dependencies.impl_constraintlayout_compose
 
     api rootProject.ext.dependencies.imple_camera
     api rootProject.ext.dependencies.imple_camera_lifecycle
     api rootProject.ext.dependencies.imple_camera_view
     api rootProject.ext.dependencies.impl_zxing
-
+    api rootProject.ext.dependencies.impl_constraintlayout_compose
 
     api rootProject.ext.dependencies.impl_accompanist_insets
     api rootProject.ext.dependencies.impl_accompanist_insets_ui

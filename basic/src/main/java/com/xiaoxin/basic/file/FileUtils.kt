@@ -10,7 +10,6 @@ import java.io.InputStream
 /**
  * 保存文件
  * @param filePath String
- * @param fileName String
  * @param inputStream InputStream
  */
 fun saveFile(filePath: String, inputStream: InputStream) {
@@ -52,4 +51,11 @@ fun <T> getAssets(application: Application, filePath: String?): T? {
         e.printStackTrace()
     }
     return null
+}
+
+
+// 文件写入
+fun writerFile(): String {
+
+    return ""
 }

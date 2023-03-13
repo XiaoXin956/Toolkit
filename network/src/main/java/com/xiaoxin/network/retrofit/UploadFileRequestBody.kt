@@ -55,7 +55,6 @@ class UploadFileRequestBody : RequestBody {
         this.upMethod = upMethod
     }
 
-    @Throws(IOException::class)
     override fun contentLength(): Long {
         return requestBody.contentLength()
     }
@@ -64,7 +63,6 @@ class UploadFileRequestBody : RequestBody {
         return requestBody.contentType()
     }
 
-    @Throws(IOException::class)
     override fun writeTo(sink: BufferedSink) {
         if (bufferedSink == null) {
             bufferedSink = Okio.buffer(sink(sink))
