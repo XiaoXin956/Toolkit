@@ -8,7 +8,6 @@ import android.webkit.WebView
 
 class XWebChromeClient : WebChromeClient {
 
-
     var choosePicture: ((filePathCallback: ValueCallback<Array<Uri>>) -> Unit)? = null
 
     constructor(choosePicture: ((filePathCallback: ValueCallback<Array<Uri>>) -> Unit)?) : super() {

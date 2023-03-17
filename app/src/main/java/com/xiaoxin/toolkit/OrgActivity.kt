@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.Toast
 import com.xiaoxin.basic.location.GPSLocationListener
 import com.xiaoxin.basic.location.GPSLocationManager
+import com.xiaoxin.basic.location.GPSUtil
 import com.xiaoxin.basic.permissions.OnPermissionCallback
 import com.xiaoxin.basic.permissions.Permission
 import com.xiaoxin.basic.permissions.XXPermissions
@@ -42,6 +43,10 @@ class OrgActivity : Activity() ,GPSLocationListener {
     }
 
     override fun updateLocation(location: Location) {
+
+       var res:DoubleArray = GPSUtil.gps84_To_bd09(location.latitude,location.longitude)
+
+
             Toast.makeText(this,  "${location.longitude},${location.latitude}", Toast.LENGTH_SHORT).show();
     }
 
